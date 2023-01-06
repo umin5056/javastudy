@@ -4,24 +4,24 @@ public class Ex04_switch {
 
 
 	/*
-		   switch(표현식) {
+   switch(표현식) {
 
-		   case 값1 : 실행문
+   case 값1 : 실행문
 
-		   case 값2 : 실행문
-		   ...
-		   default : 실행문 (default는 if문의 esle와 같다)
+   case 값2 : 실행문
+   ...
+   default : 실행문 (default는 if문의 esle와 같다)
 
 
-		   }
+   }
 
-		   표현식의 결과로 사용 가능한 타입
-		   - int
-		   - String
+   표현식의 결과로 사용 가능한 타입
+   - int
+   - String
 
-		   표현식의 결과로 사용할 수 없는 타입
-		   - boolean
-		   - double
+   표현식의 결과로 사용할 수 없는 타입
+   - boolean
+   - double
 
 	 */
 
