@@ -37,7 +37,7 @@ public class Ex03_break {
 	public static void ex02() {
 		
 		int goal = 100000;
-		int money = 60;
+		int money = 600;
 		int total = 0;
 		int n = 0;
 		
@@ -53,8 +53,6 @@ public class Ex03_break {
 			System.out.println(n + "번째 모금, 금액 : " + total + "원");
 			
 		}
-		
-		
 	}
 	
 	

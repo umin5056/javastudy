@@ -56,7 +56,7 @@ public class Ex05_nexted_loop {
 	
 	public static void main(String[] args) {
 
-		ex04();
+		ex01();
 		
 	}
 
