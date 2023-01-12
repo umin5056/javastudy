@@ -6,6 +6,9 @@ public class MainClass {
 
 		Soldier sold = new Soldier();
 		
+		Soldier sold1;
+		sold1 = new Soldier();
+		
 		
 		sold.reload(2);
 		

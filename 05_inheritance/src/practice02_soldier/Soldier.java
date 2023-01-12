@@ -5,8 +5,6 @@ public class Soldier {
 	// 필드
 	private Gun gun;
 	
-	
-	
 	public Soldier() {
 		gun = new Gun();
 	}
