@@ -13,6 +13,7 @@ public class MainClass {
 		
 		user.setPw("12345");
 		System.out.println(user.getPw());
+		
 	}
 
 }

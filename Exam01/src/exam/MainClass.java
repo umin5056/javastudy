@@ -194,9 +194,9 @@ public class MainClass {
 			}
 			
 			// 십의 자리가 3의 배수인가?
-			if(i > 10 &&ten % 3 == 0) {
-				condition2 = true;
-			}
+//			if(i > 10 &&ten % 3 == 0) {
+//				condition2 = true;
+//			}
 
 			// 10마다 줄 바꿈
 			if(i > 1 && i%10 == 1) {
