@@ -134,13 +134,15 @@ public class MainClass {
 	// 예시
 	// 행주도마
 	public static void q8() {
-		String strScore = "75";
+		String strScore = "100";
 
 		String[] gift = {"행주", "도마", "식칼", "냄비"};
 
 		int score = Integer.parseInt(strScore);
 
 		switch(score/10) {
+		
+		case 10 :
 
 		case 9 : for(int i = 0; i < gift.length; i++) {
 					System.out.print(gift[i]);
@@ -194,9 +196,9 @@ public class MainClass {
 			}
 			
 			// 십의 자리가 3의 배수인가?
-//			if(i > 10 &&ten % 3 == 0) {
-//				condition2 = true;
-//			}
+			if(i > 10 &&ten % 3 == 0) {
+				condition2 = true;
+			}
 
 			// 10마다 줄 바꿈
 			if(i > 1 && i%10 == 1) {
