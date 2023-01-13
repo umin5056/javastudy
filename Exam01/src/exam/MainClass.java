@@ -1,5 +1,7 @@
 package exam;
 
+import java.util.Arrays;
+
 public class MainClass {
 
 	// 문제1. int serial의 첫 번째 글자가 1,3,5이면 "남자", 2,4,6이면 "여자"를 출력하시오.
@@ -260,7 +262,7 @@ public class MainClass {
 	// 가장 높은 점수를 받은 사람은 정숙입니다.
 	public static void q10() {
 		String[] names = {"철수", "영희", "정숙", "상철", "미희"};
-		int[] scores = {50, 60, 90, 80, 70};
+		int[] scores = {50, 60, 90, 90, 70};
 		
 		int max = scores[0];
 		int idx = 0;
@@ -272,6 +274,16 @@ public class MainClass {
 			}
 		}
 		
+		// 동점자
+		
+		String[] str = new String[names.length];
+
+		for(int i=0; i < scores.length; i++) {
+			if(scores[i] == max) {
+				str[i] = names[i];
+			}
+		}
+		System.out.println("가장 높은 점수를 받은 사람은 " + Arrays.toString(str) + "입니다.");
 		System.out.println("가장 높은 점수를 받은 사람은 " + names[idx] + "입니다.");
 		
 
