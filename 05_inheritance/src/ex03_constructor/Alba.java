@@ -1,5 +1,5 @@
 package ex03_constructor;
-
+	
 public class Alba extends Student {
 	
 	private String company;
@@ -8,7 +8,6 @@ public class Alba extends Student {
 		super(name, school);
 		this.company = company;
 	}
-	
 	
 	public String getCompany() {
 		return company;

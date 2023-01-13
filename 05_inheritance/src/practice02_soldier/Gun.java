@@ -15,20 +15,6 @@ public class Gun {
 	private int bullet;
 	private final int MAX_BULLET = 20;
 	
-	
-	public String getModel() {
-		return model;
-	}
-	public void setModel(String model) {
-		this.model = model;
-	}
-	public int getBullet() {
-		return bullet;
-	}
-	public void setBullet(int bullet) {
-		this.bullet = bullet;
-	}
-	
 	// 총알 넣기
 	public void reload(int bullet) {
 		
@@ -51,6 +37,10 @@ public class Gun {
 		}
 		bullet --;
 		System.out.println("빵");
+	}
+	
+	public void shoot2() {
+		this.shoot();
 	}
 
 }

@@ -7,9 +7,9 @@ public class MainClass {
 	// 예시
 	// 남자입니다.
 	public static void q1() {
-		int number = 1234567;
+		int number = 1034567;
 
-		while(number > 10) {
+		while(number >= 10) {
 			number /= 10;
 		}
 		if(number%2 == 0) {
@@ -17,6 +17,16 @@ public class MainClass {
 		}else {
 			System.out.println("남자입니다.");
 		}
+	
+	// 방법2
+		String str = number + "";
+		
+		if(str.charAt(0)%2 == 0) {
+			System.out.println("여자입니다.");
+		}else {
+			System.out.println("남자입니다.");
+		}	
+	
 	}
 
 	// 문제2. int a와 int b에 저장된 결과를 이용해서 사칙연산 결과를 출력하시오.
@@ -46,10 +56,21 @@ public class MainClass {
 
 		for(int a = 2; a < 6; a++) {
 			for(int b = 1; b < 10; b++) {
-				if(a==5&&b==6) break;
 				System.out.println(a + " x " + b + " = " + (a*b));
+				if(a==5&&b==5) return;
 			}
 		}
+		
+		// 방법 2
+//		outer: // 바깥 for문 label
+//		for(int a = 2; a < 10; a++) {
+//			inner: // 안쪽 for문 lable
+//			for(int b = 1; b < 10; b++) {
+//				System.out.println(a + " x " + b + " = " + (a*b));
+//				if(a==5&&b==5) break outer;
+//			}
+//		}
+		
 
 	}
 
@@ -65,7 +86,8 @@ public class MainClass {
 		for(int i = begin; i <= end; i++) {
 			total += i;
 		}
-		System.out.println(begin + "부터 " +	end + "사이 모든 정수의 평균은 " + total / (double)end + "입니다.");
+		// 우민 감점 System.out.println(begin + "부터 " +	end + "사이 모든 정수의 평균은 " + total / (double)end + "입니다.");
+		System.out.println(begin + "부터 " +	end + "사이 모든 정수의 평균은 " + total / (end - begin +1.0) + "입니다.");
 
 	}
 
@@ -122,7 +144,7 @@ public class MainClass {
 				count++;
 			}
 		}
-		System.out.println("배열에 포함된 h는 " + count + "개입니다.");
+		System.out.println("배열에 포함된 " + ch + "는" + count + "개입니다.");
 
 	}
 
@@ -139,33 +161,50 @@ public class MainClass {
 		String[] gift = {"행주", "도마", "식칼", "냄비"};
 
 		int score = Integer.parseInt(strScore);
+		
 
 		switch(score/10) {
 		
-		case 10 :
-
-		case 9 : for(int i = 0; i < gift.length; i++) {
+		case 6 : for(int i = 0; i < gift.length-3; i++) {
+			System.out.print(gift[i]);
+		}	
+		System.out.println();		break;
+		
+		case 7 : for(int i = 0; i < gift.length-2; i++) {
+			System.out.print(gift[i]);
+		}	
+		System.out.println();		break;
+		
+		case 8 : for(int i = 0; i < gift.length-1; i++) {
+			System.out.print(gift[i]);
+		}	
+		System.out.println();		break;
+		
+		
+		default : for(int i = 0; i < gift.length; i++) {
 					System.out.print(gift[i]);
 			 	 }	
 				 System.out.println();		break;
-		
-		case 8 : for(int i = 0; i < gift.length-1; i++) {
-					System.out.print(gift[i]);
-				}	
-				System.out.println();		break;
-		
-		case 7 : for(int i = 0; i < gift.length-2; i++) {
-					System.out.print(gift[i]);
-				}	
-				System.out.println();		break;
-		
-		case 6 : for(int i = 0; i < gift.length-3; i++) {
-					System.out.print(gift[i]);
-				}	
-				System.out.println();		break;
-		
-		
 		}
+		
+		// 방법 2
+		
+		String result = "";
+		
+		if(score >= 60) {
+			result = "행주";
+		} 
+		if(score >= 70) {
+			result += "도마";
+		}
+		if(score >= 80) {
+			result += "식칼";
+		}
+		if(score >= 90) {
+			result += "냄비";
+		}
+		
+		System.out.println(result);
 
 	}
 
@@ -191,31 +230,24 @@ public class MainClass {
 			int ten = i / 10; // 십의 자리
 			
 			// 일의 자리가 3의 배수인가?
-			if(one != 0 && one%3 == 0) {
-				condition1 = true;
-			}
+				condition1 = one != 0 && one%3 == 0;
 			
 			// 십의 자리가 3의 배수인가?
-			if(i > 10 &&ten % 3 == 0) {
-				condition2 = true;
-			}
-
+				condition2 = i > 10 &&ten % 3 == 0;
 			// 10마다 줄 바꿈
-			if(i > 1 && i%10 == 1) {
-				System.out.println();
-			}
 			
 			// 369 출력
 			if(condition1 && condition2) {
 				System.out.print("짝짝" + "\t");
-			} else if(condition1) {
-				System.out.print("짝" + "\t");
-			} else if(condition2) {
+			} else if(condition1 || condition2) {
 				System.out.print("짝" + "\t");
 			} else {
 				System.out.print(i + "\t");
 			}
 				
+			if(one == 0) {
+				System.out.println();
+			}
 		}
 		
 		System.out.println();
@@ -236,11 +268,6 @@ public class MainClass {
 		for(int i=0; i<scores.length; i++) {
 			if(max < scores[i]) {
 				max = scores[i];
-			}
-		}
-		
-		for(int i=0; i<scores.length; i++ ) {
-			if(max == scores[i]) {
 				idx = i;
 			}
 		}
