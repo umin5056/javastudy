@@ -12,8 +12,6 @@ package ex05_upcasting;
    업캐스팅의 단점
    1. 부모 타입으로 저장되기 때문에 부모 클래스의 메소드만 호출 가능.
       해결법 : 자식 클래스의 메소드를 부모 클래스에 실행문없이 추가한다.
-   
-   
  */
 
 public class MainClass {
@@ -24,13 +22,13 @@ public class MainClass {
 		Person person;
 		
 		// 자식 객체 생성
-		person = new Alba();
+		person = new Student();
 		
 		// 메소드
 		person.eat();
 		person.sleep();
 		person.study();
-		person.work();
+		person.study();
 	
 		/* 
 		   person.study() 동작 경로
