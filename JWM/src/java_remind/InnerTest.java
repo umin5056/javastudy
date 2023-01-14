@@ -16,10 +16,6 @@ class A {
 }
 
 
-class C {
-	
-}
-		
 public class InnerTest {
 
 	public static void main(String[] args) {
@@ -27,6 +23,8 @@ public class InnerTest {
 		A a = new A();
 		
 		a.b.method();
+		
+		System.out.println("test");
 		
 	}
 
