@@ -14,7 +14,7 @@ public class CoffeeBean {
 	
 	// 조회 메소드
 	public void info() {
-		System.out.println("원산지 : " + origin);
+		System.out.println("원산지 : " + origin + "\t");
 	}
 	
 }

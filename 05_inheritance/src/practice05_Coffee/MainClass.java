@@ -9,7 +9,7 @@ public class MainClass {
 		
 		// 브라질 원두에 물 50ml를 사용한 에스프레소 2샷
 		Espresso espresso1 = new Espresso(coffeeBean, 50);
-		Espresso espresso2 = new Espresso(coffeeBean, 50);
+		Espresso espresso2 = new Espresso(coffeeBean, 10);
 		
 		// 에스프레소 2샷에 물 100ml를 사용한 아메리카노
 		Americano americano = new Americano(2, 100);  // 에스프레소 2샷에 물 100ml를 사용하는 아메리카노

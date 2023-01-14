@@ -18,15 +18,16 @@ public class Customer {
 	// 특정 빵집에 얼마의 돈을 지불한다.
 	public void buy(Bakery bakery, int money) {
 		
-		if(money > this.money || money/bakery.getBreadPrice()> bakery.getBreadCount()) {
+		if(money > this.money) {
 			return;
 		}
 		
+		BreadAndChange bnc = bakery.sell(money);
+
+		this.breadCount += bnc.getBreadCount();
+		this.money += bnc.getChange();
+		
 		this.money -= money;
-		
-		this.breadCount += bakery.sell(money).getBreadCount();
-		
-		
 		
 	}
 	

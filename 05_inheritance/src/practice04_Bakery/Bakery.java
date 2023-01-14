@@ -20,31 +20,6 @@ public class Bakery {
 		this.bakeryMoney = bakeryMoney;
 	}
 	
-	// Getter Setter
-	public int getBreadCount() {
-		return breadCount;
-	}
-	
-	public void setBreadCount(int breadCount) {
-		this.breadCount = breadCount;
-	}
-	
-	public int getBreadPrice() {
-		return breadPrice;
-	}
-	
-	public void setBreadPrice(int breadPrice) {
-		this.breadPrice = breadPrice;
-	}
-	
-	public int getBakeryMoney() {
-		return bakeryMoney;
-	}
-	
-	public void setBakeryMoney(int bakeryMoney) {
-		this.bakeryMoney = bakeryMoney;
-	}
-	
 
 	// 판매 메소드
 	// 구매자에게 돈을 받는다. 구매자에게 빵과 잔돈을 준다.
@@ -52,14 +27,16 @@ public class Bakery {
 		
 		int sellCount = money/breadPrice;
 		
-		BreadAndChange bnc = new BreadAndChange(sellCount, money);
-		if(sellCount > breadCount) {
-			return bnc;
-		}
+		int change = money % breadPrice;
 		
-		this.bakeryMoney += money;
+		BreadAndChange bnc = new BreadAndChange(sellCount, change);
+//		if(sellCount > breadCount) {
+//			return bnc;
+//		}
 		
-	 	breadCount -= sellCount;
+		breadCount -= sellCount;
+		bakeryMoney += money - change;
+		
 	 	
 	 	return bnc;
 		

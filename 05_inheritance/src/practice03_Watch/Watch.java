@@ -17,36 +17,44 @@ public class Watch {
 	// 메소드
 	public void addHour(int hour) {
 		
+		if(hour < 0) {
+			return;
+		}
+		
 		this.hour += hour;
 
-		while(this.hour > 24) {
-			this.hour -= 24;
-		}
+		this.hour %= 24;
 	
 	}
 	
 	public void addMinute(int minute) {
+		
+		if(minute < 0) {
+			return;
+		}
 				
 		this.minute += minute;
 		
-		while(this.minute > 60) {
-			this.minute -= 60;
-			this.hour++;
-		}
+		addHour(this.minute / 60);
+		
+		this.minute %= 60;
+		
+		
 	}
 	
 	public void addSecond(int second) {
-		this.second += second;
-
-		while(this.second > 60) {
-			this.second -= 60;
-			this.minute++;
-			
-			while(this.minute > 60) {
-				this.minute -= 60;
-				this.hour++;
-			}
+		
+		if(second < 0) {
+			return;
 		}
+		
+		this.second += second;
+		
+		addMinute(this.second / 60);
+		
+		this.second%=60;
+		
+		
 	}
 	
 	public void see() {
