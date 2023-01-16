@@ -7,8 +7,8 @@ public class MainClass {
 		Person person = new Student();
 		
 		person.eat();
-		person.study();
 		person.sleep();
+		person.study();
 		
 	}
 
