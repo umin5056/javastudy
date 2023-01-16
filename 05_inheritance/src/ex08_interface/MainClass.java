@@ -7,11 +7,12 @@ public class MainClass {
 		Person person = new Student();
 		
 		person.eat();
+		person.eat();
+		person.sleep();
+		person.sleep();
 		person.sleep();
 		person.study();
 		person.study();
-		person.study();
-		
 	}
 
 }
