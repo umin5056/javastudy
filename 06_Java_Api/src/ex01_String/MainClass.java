@@ -233,6 +233,102 @@ public class MainClass {
 		
 	}
 	
+	public static void trim() {
+		
+		// trim : 문자열 앞뒤에 공백(space, tab, enter)을 제거
+		
+		String str = "   hahahah   hohoho   ";
+		
+		System.out.println("(" + str + ")");
+		System.out.println("(" + str.trim() + ")");
+		
+		
+		
+	}
+	
+	public static void replace() {
+		
+		/*
+		   replace : 기존 문자열을 새로운 문자열로 변환
+		   
+		   사용법
+		   - str.replace(String str1, String str2) 
+		     : str에 있는 모든 str1을 str2로 변환
+		 */
+		
+		String str = "best of the best";
+		String result = str.replace("best", "worst");
+		
+		System.out.println(result);
+	
+		/*
+		   replaceAll : 정규식 패턴(Regular Expression)을 만족하는 부분을 변환
+		 */
+		
+		String ip = "61.78.121.242";
+		String replacedIp = ip.replace(".", "_"); // 61_78_121_242;
+		String replacedIp2 = ip.replaceAll(".", "_"); // (정규식에서 .은 모든 문자를 가르킴)
+		
+		System.out.println(replacedIp);
+		System.out.println(replacedIp2);
+		
+		
+	}
+	
+	public static void isEmpty() {
+		
+		// isEmpty : 빈문자열이면 true, 아니면 false 반환
+		// 빈문자열 : 문자열의 length가 0인 문자열 ("")
+		
+		String str = "   ";
+		if(str.trim().isEmpty()) {
+			System.out.println("빈문자열입니다.");
+		}else {
+			System.out.println("빈문자열이 아닙니다.");
+		}
+		
+		// isBlank : 빈 문자열이거나, 공백 문자로만 구성되었다면 true, 아니면 false 반환 (jdk 11 이후에서만 사용가능)
+		
+		if(str.isBlank()) {
+			System.out.println("비었다.");
+		} else {
+			System.out.println("아니다.");
+		}
+		
+		
+	}
+	
+	public static void format() {
+		
+		// format : 문자열을 지정한 형식으로 반환
+		
+		// 숫자 형식 지정하기
+		
+		int num = 1000;
+		
+		System.out.println(String.format("%o", num)); // %o : 8진수로 표시
+		System.out.println(String.format("%d", num)); // %d : 10진수로 표시
+		System.out.println(String.format("%x", num)); // %x : 16진수로 표시 (0 ~ 9, a ~ f)
+		System.out.println(String.format("%X", num)); // %X : 16진수로 표시 (0 ~ 9, A ~ F)
+		
+		// 문자열 형식 지정하기
+		
+		String str = "hi";
+		
+		System.out.println(String.format("%s", str)); // %s : 문자열로 표시
+		
+		// 출력 폭 지정하기
+		System.out.println(String.format("%10d", num)); // %10d : 10자리로 출력 숫자는 오른쪽 정렬.
+		System.out.println(String.format("%-10d", num)); // %-10d : 10자리로 출력 숫자는 왼쪽 정렬.
+		System.out.println(String.format("%5s", str)); // %5d : 5자리로 출력 숫자는 오른쪽 정렬.
+		System.out.println(String.format("%-5s", str)); // %-5d : 10자리로 출력 숫자는 왼쪽 정렬.
+		
+		
+	}
+	
+	
+	
+	
 	public static void ex01() {
 
 		
@@ -276,7 +372,7 @@ public class MainClass {
 	
 	public static void main(String[] args) {
 
-		toCase();
+		format();
 
 	}
 
