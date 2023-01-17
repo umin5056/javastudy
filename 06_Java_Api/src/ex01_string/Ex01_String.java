@@ -1,6 +1,6 @@
-package ex01_String;
+package ex01_string;
 
-public class MainClass {
+public class Ex01_String {
 
 	public static void literal() {
 
@@ -325,9 +325,6 @@ public class MainClass {
 		
 		
 	}
-	
-	
-	
 	
 	public static void ex01() {
 
