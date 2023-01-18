@@ -1,4 +1,4 @@
-package ex01_string;
+package ex01_String;
 
 public class Ex02_StringBuffer {
 

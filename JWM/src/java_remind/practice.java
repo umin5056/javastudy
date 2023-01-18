@@ -1,18 +1,16 @@
 package java_remind;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 public class practice {
 
 	public static void main(String[] args) {
-		
-		long ts = System.currentTimeMillis();
 
-		Date now = new Date(ts);
-		System.out.println(now);
+		LocalDate date1 = LocalDate.now();
+		LocalDate date2 = LocalDate.parse("2020-02-22");
 		
+		
+		System.out.println(date2);
 		
 	}
 }
-
-
