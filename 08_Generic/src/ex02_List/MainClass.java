@@ -18,7 +18,7 @@ public class MainClass {
 		list.add(0, "spring"); // 인덱스 0에 추가된다.
 		
 		// 수정
-		list.set(2, "fall");
+		list.set(2, "fall"); // 인덱스 2의 요소를 fall로 수정함.
 		
 		// 삭제
 		list.remove("frog"); // 삭제할 요소를 전달.
