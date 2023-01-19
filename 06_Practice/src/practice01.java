@@ -1,4 +1,4 @@
-
+import java.util.*;
 public class practice01 {
 
 	// 문제1. 가위바위보
@@ -7,6 +7,31 @@ public class practice01 {
 	// 당신은 가위, 컴퓨터는 보, 이겼습니다.
 	// Hint : 가위는 0, 바위는 1, 보는 2로 처리한다.
 	public static void ex01() {
+		
+		List<String> list = Arrays.asList("가위","바위","보");
+		
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.print("가위바위보 >>> ");
+		
+		String input = sc.next();
+		
+		int user = list.indexOf(input);
+		
+		int com = (int)(Math.random()*3);
+
+		int result = user-com;
+		
+		switch(result) {
+		case 0 :
+			System.out.println("비겼습니다."); break;
+		case -1 : case 2 :
+			System.out.println("컴퓨터가 이겼습니다."); break;
+		default :
+			System.out.println("사용자가 이겼습니다.");
+		}
+		
+		System.out.println("당신은 " + input + " 컴퓨터는 " + list.get(com));
 		
 	}
 	
@@ -93,7 +118,7 @@ public class practice01 {
 	}
 	
 	public static void main(String[] args) {
-		ex10();
+		ex01();
 	}
 
 }
