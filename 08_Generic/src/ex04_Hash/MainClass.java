@@ -15,7 +15,7 @@ public class MainClass {
 		set.add(user1);
 		set.add(user2);
 		
-		System.out.println(set);
+		System.out.println(set); // User에 equals,hashcode를 오버라이드해야 set에서 객체 중복을 막는다.
 		
 	}
 

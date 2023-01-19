@@ -30,7 +30,7 @@ public class practice01 {
 		default :
 			System.out.println("사용자가 이겼습니다.");
 		}
-		
+		sc.close();
 		System.out.println("당신은 " + input + " 컴퓨터는 " + list.get(com));
 		
 	}
@@ -39,13 +39,39 @@ public class practice01 {
 	// 새로 사귄 친구의 수를 입력 받아서 기존 친구들이 저장된 배열의 길이를 새로 사귄 친구의 수만큼 늘리시오.
 	public static void ex02() {
 		
+		int[] frd1 = {1,2,3};
+
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.print("새로 사귄 친구의 수 >>> ");
+		
+		int nfrd = sc.nextInt();
+		sc.close();
+		
+		int[] frd2 = new int[frd1.length + nfrd];
+		
+		for(int i=0; i < frd1.length; i++) {
+			frd2[i] = frd1[i];
+		}
+		frd1 = frd2;
+		System.out.println(Arrays.toString(frd1));
+		
+		
 	}
 	
 	// 문제3. Scanner 클래스의 next() 메소드를 이용해서 사용자로부터 문자열을 계속 입력 받는다.
 	// 사용자가 "종료" 문자열을 입력하면 더 이상 입력 받지 않는다.
 	// 총 몇 번만에 종료되었는지 그 횟수를 마지막에 출력한다.
 	public static void ex03() {
-		
+		Scanner sc = new Scanner(System.in);
+		int count = 0;
+		while(true) {
+			String input = sc.next();
+			count++;
+			if(input.equals("종료")) break;
+		}
+		System.out.println(count + "번 입력했습니다.");
+		sc.close();
 	}
 
 	// 문제4. 퀴즈 정답을 맞힐때까지 계속 퀴즈를 내시오.
@@ -57,11 +83,43 @@ public class practice01 {
 	// 오답입니다.
 	public static void ex04() {	
 		
+		Scanner sc = new Scanner(System.in);
+		
+		while(true) {
+			System.out.print("질문 : 대한민국의 수도는? >>>" );
+			String answer = sc.next();
+			if(answer.equals("서울") || answer.equalsIgnoreCase("seoul")) {
+				System.out.println("정답입니다.");break;
+			} else {
+				System.out.println("오답입니다. 매국노야");
+			}
+		}
+		sc.close();
+		
 	}
 	
 	// 문제5. 평점 입력 받아서 해당 평점만큼 ★을 출력하시오.
 	// 평점은 1 ~ 5 사이 정수로 입력 받는데, 벗어난 범위는 다시 입력 받는다.
 	public static void ex05() {
+		
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.print("평점을 입력하세요 : ");
+		int input = 0;
+		input = sc.nextInt();
+		
+		while(!(0 < input && input < 6)) {
+			System.out.println("1 ~ 5사이로 입력해주세요.");
+			input = sc.nextInt();
+		}
+		if(0 < input && input < 6) {
+			System.out.print("당신의 평점은 ");
+		for(int i=0; i<input; i++) {
+			System.out.print("★");
+		}
+		System.out.println("점 입니다.");
+		}
+		sc.close();
 		
 	}
 	
@@ -70,6 +128,28 @@ public class practice01 {
 	// 비밀번호 입력은 최대 5번으로 제한하고, 5번의 입력이 모두 틀리면 최종적으로 "실패"를 출력하시오.
 	public static void ex06() {
 		
+		Scanner sc = new Scanner(System.in);
+		
+		String pw = "1234";
+		int count = 0;
+
+		while(true) {
+			System.out.println("비밀번호를 입력하세요 >>> ");
+			String input = sc.next();
+			count++;
+			
+			if(input.equals(pw)) {
+				System.out.println("성공");
+				break;
+			}
+			if(count == 5) {
+				System.out.println("실패");
+				break;
+			}
+			
+		}
+		
+		sc.close();
 	}		
 	
 	// 문제7. 구구단을 외자.
@@ -82,6 +162,8 @@ public class practice01 {
 	// 8x7? >>> 49
 	// 땡
 	public static void ex07() {
+		
+		
 		
 	}
 	
@@ -118,7 +200,7 @@ public class practice01 {
 	}
 	
 	public static void main(String[] args) {
-		ex01();
+		ex06();
 	}
 
 }
