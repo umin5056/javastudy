@@ -1,6 +1,7 @@
 package ex01_try_catch;
 
-import java.util.Arrays;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.util.Scanner;
 
 public class MainCalss {
@@ -71,10 +72,24 @@ public class MainCalss {
 		}
 
 	}
+	
+	public static void ex04() {
+		
+		try {
+		FileReader fr = new FileReader("sample.txt");
+		fr.close();
+		} catch (Exception e) {
+			System.out.println("no file");
+		} finally {
+			
+		}
+		
+		
+	}
 
 
 	public static void main(String[] args) {
 
-		ex03();
+		ex04();
 	}
 }
