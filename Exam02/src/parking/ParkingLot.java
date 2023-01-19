@@ -47,6 +47,7 @@ public class ParkingLot {
 	}
 	
 	public void manage() {
+	
 		while(true) {
 			
 			System.out.println("1.추가 2.삭제 3.전체 0.종료");
@@ -63,7 +64,7 @@ public class ParkingLot {
 				
 			case 0:	System.out.println("프로그램 종료"); return;
 			
-			default : System.out.println("잘못 입력하셨습니다.");
+			default : System.out.println("존재하지 않는 메뉴입니다	.");
 			}
 			
 			
