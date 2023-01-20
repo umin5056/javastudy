@@ -1,3 +1,4 @@
+import java.security.Timestamp;
 import java.util.Arrays;
 import java.util.Calendar;
 import java.util.List;
@@ -238,9 +239,19 @@ public class practice01 {
 	// 변환 후 파일명 = happy_1658792128410.jpg
 	public static void ex09() {
 		
-		Scanner sc = new Scanner(System.in);
+		long ts = System.currentTimeMillis(); 
 		
+		Scanner sc = new Scanner(System.in);
+		System.out.print("파일명을 입력하시오 >>>");
 		String fileName = sc.next();
+		
+		String name = fileName.substring(0, fileName.indexOf(".")) + "_" + (ts+"");
+		String newFileName = name +fileName.substring(fileName.indexOf("."), fileName.length());
+		
+		System.out.println("변환 전 파일명 : " + fileName);
+		System.out.println("변환 후 파일명 : " + newFileName);
+		
+//		String newFileName = fileName.su
 		
 		
 
@@ -275,7 +286,7 @@ public class practice01 {
 	}
 
 	public static void main(String[] args) {
-		ex10();
+		ex09();
 	}
 
 }

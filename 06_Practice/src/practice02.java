@@ -1,3 +1,8 @@
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Scanner;
+
 public class practice02 {
 
 	// 문제1. 통장(balance)에 최초 5000원이 있다.
@@ -11,9 +16,22 @@ public class practice02 {
 	// 출금 전 18원, 5회 출금액 17원, 출금 후 1원
 	// 출금 전 1원, 6회 출금액 1원, 출금 후 0원
 	public static void ex01() {
-		
+
+		int balance = 5000;
+		int count = 1;
+
+		while(true) {
+			System.out.print("출금 전 " + balance + "원, ");
+			int deposit = (int)(Math.random()*balance) +1;
+			System.out.print(count + "회 출금액 " + deposit + "원, ");
+			System.out.println("출금 후 " + balance + "원");
+			balance -= deposit;
+			if(balance==0) break;
+		}
+
+
 	}
-	
+
 	// 문제2. UpDown 게임
 	// 1 ~ 10000 사이의 난수를 발생시키고 해당 난수를 사용자가 맞히는 게임이다.
 	// 입력마다 "Up!", "Down!" 메시지를 출력하시오.
@@ -26,9 +44,32 @@ public class practice02 {
 	// 입력 >>> 4500
 	// 정답. 총 5번만에 성공.
 	public static void ex02() {
-		
+
+		Scanner sc = new Scanner(System.in);
+
+		int count = 0;
+
+		int answer = (int)(Math.random()*10000) + 1;
+		System.out.println(answer);
+		while(true) {
+			System.out.print("입력 >>> ");
+			int input = sc.nextInt();
+			count++;
+
+			if(input > answer) {
+				System.out.println("Down!!");
+			}
+			else if(input < answer) {
+				System.out.println("Up!!");
+			}
+			else {
+				System.out.println("정답!! " + count + "번만에 성공."); return;
+			}
+
+		}
+
 	}
-	
+
 	// 문제3. 자동으로 진행되는 윷 던지기를 구현하시오. 윷이나 모가 나오면 추가로 던지시오.
 	// 예시)
 	// "도", 1칸 이동한다.
@@ -37,9 +78,38 @@ public class practice02 {
 	// "윷", "도", 5칸 이동한다.
 	// "모", "윷", "도", 10칸 이동한다.
 	public static void ex03() {
-		
+
+		String[] method = {"도", "개", "걸", "윷", "모"};
+
+		List<String> trace = new ArrayList<>();
+
+		int move; // 결과에 따라 움직이는 
+		int total = 0; // 총 움직인 칸
+
+		while(true) { 
+
+			int play = (int)(Math.random()*5);
+			String result = method[play];
+			trace.add(result);
+			move = play + 1;
+			total += move;
+
+			System.out.println(result + ", " + move + "칸 이동한다.");
+
+			if(!(result.equals("윷") || result.equals("모"))) {
+				for(String s : trace) {
+					System.out.print(s + ", ");
+				}
+				System.out.println(total + "칸 이동한다.");
+				return;
+			}
+
+		}
+
+
+
 	}
-	
+
 	// 문제4. 0~9 사이 난수를 100개 생성하시오.
 	// 발생한 0~9 사이의 각 난수들이 생성된 횟수(빈도수)를 그래프화 하여 출력하시오.
 	// 예시)
@@ -54,9 +124,28 @@ public class practice02 {
 	// 8 : ####### 7
 	// 9 : ########### 11
 	public static void ex04() {
-		
+
+		int[] arr = new int[10];
+
+		// 배열에 0~9까지 나온 횟수 입력
+		for(int i=0; i<100; i++) {
+			int random = (int)(Math.random()*10);
+			arr[random]++;
+		}
+
+		// 출력
+		for(int i=0; i<arr.length; i++) {
+			System.out.print(i + " : ");
+			for(int j=0; j<arr[i]; j++) {
+				System.out.print("#");
+			}
+			System.out.println(" " + arr[i]);
+		}
+
+
+
 	}
-	
+
 	// 문제5. 간단한 성적 관리 프로그램을 구현하시오.
 	// 학생은 3명, 과목은 3과목으로 가정한다.
 	// 학생 이름 : "정숙", "미희", "상철"
@@ -79,9 +168,53 @@ public class practice02 {
 	// 상철 70   71   73   214	
 	// 합계 180  183  189  552	
 	public static void ex05() {
+
+		Scanner sc = new Scanner(System.in);
+
+		String[] student = {"우민", "정숙", "미희"};
+		String[] subject = {"국어", "영어"	, "수학"};
+		int[][] studentScore = new int[student.length][subject.length];
+		int[] subjectTotal = new int[subject.length];
 		
+		int subjectTotalSum = 0;
+		
+
+		for(int i=0; i < student.length; i++) {
+			for(int j=0; j < subject.length; j++) {
+				System.out.print(student[i] + "의 " + subject[j] +" 점수 >>> ");
+				String score = sc.next();
+				studentScore[i][j] = Integer.parseInt(score);
+			}
+		}
+
+		System.out.println("\t국어\t" + "영어\t" + "수학\t" + "총점");
+		for(int i=0; i < studentScore.length; i++) {
+			
+			int total =0; // 학생 별 합계
+			int subTotal =0; // 과목별 합계
+			System.out.print(student[i]+ "\t"); // 학생 이름 출력
+			
+			for(int j=0; j < studentScore[i].length; j++) {
+				System.out.print(studentScore[i][j] + "\t");
+				total += studentScore[i][j];
+				subTotal += studentScore[j][i];
+			}
+			subjectTotal[i] = subTotal;
+			System.out.println(total);
+			
+		}
+		
+		System.out.print("합계\t");
+		
+		for(int i=0; i < student.length; i++) {
+			subjectTotalSum += subjectTotal[i];
+			System.out.print(subjectTotal[i] + "\t");
+		}
+		System.out.println(subjectTotalSum);
+		
+
 	}
-	
+
 	// 문제6. 4계절이 저장되어 있는 영한 사전(2차원 배열)을 이용하여 문제를 해결하시오.
 	// 예시)
 	// 봄을 영어로 하면? >>> spring
@@ -94,8 +227,32 @@ public class practice02 {
 	// 오답
 	public static void ex06() {
 		
+		Scanner sc = new Scanner(System.in);
+		
+		String[][] season = {
+				{"봄", "spring"},
+				{"여름", "summer"},
+				{"가을", "fall"},
+				{"겨울", "winter"}
+		};
+		
+		for(int i=0; i < season.length; i++ ) {
+			
+			System.out.print(season[i][0] + "을 영어로 하면? >>> ");
+			String answer = sc.next();
+			
+			if(answer.equals(season[i][1])) {
+					System.out.println("정답!!");
+			} else {
+				System.out.println("오답!!");
+			}
+			
+		}
+		
+		
+
 	}
-	
+
 	// 문제7. 다음 순서에 따라서 5 x 5 형태의 숫자 빙고판을 자동으로 생성하시오.
 	// 지시사항)
 	//   1. 1 ~ 25 사이 정수를 2차원 배열 bingo 에 순차적으로 넣는다.
@@ -116,9 +273,9 @@ public class practice02 {
 	//  16 22 18 24 23
 
 	public static void ex07() {
-		
+
 	}
-	
+
 	// 문제8. 대문자와 소문자와 숫자로 구성된 인증번호를 만드시오.
 	// 사용자로부터 몇 자리의 인증번호를 만들것인지 입력 받아서 처리하시오.
 	// 대문자와 소문자와 숫자는 임의로 섞으시오.
@@ -126,9 +283,9 @@ public class practice02 {
 	// 몇 자리의 인증번호를 생성할까요? >>> 6
 	// 생성된 6자리 인증번호는 Fa013b입니다.
 	public static void ex08() {
-		
+
 	}
-	
+
 	// 문제9. 다음 지시시항에 따라 요일을 계산하는 프로그램을 구현하시오.
 	// 지시사항)
 	//   1. AD 1년 1월 1일은 월요일이다.
@@ -152,9 +309,9 @@ public class practice02 {
 	// 년-월-일 입력(2000-01-01) >>> 2023-01-19
 	// 입력된 2023-01-19는 목요일입니다.
 	public static void ex09() {
-		
+
 	}
-	
+
 	// 문제10. 사용자가 입력한 금액만큼 로또를 구매한다고 가정하고, 완성된 로또 용지를 출력하시오.
 	// 금액은 1000원 단위로 입력하고 100원 이하 단위 입력은 무시하시오.
 	// 로또 용지 1개에는 최대 5개의 로또 게임 기록이 가능하다.
@@ -181,11 +338,11 @@ public class practice02 {
 	// 01 :   13  10  42  34  32  21
 	// ------------------------------
 	public static void ex10() {
-		
+
 	}
-	
+
 	public static void main(String[] args) {
-		ex10();
+		ex06();
 	}
 
 }
