@@ -238,6 +238,10 @@ public class practice01 {
 	// 변환 후 파일명 = happy_1658792128410.jpg
 	public static void ex09() {
 		
+		Scanner sc = new Scanner(System.in);
+		
+		String fileName = sc.next();
+		
 		
 
 	}
@@ -253,10 +257,25 @@ public class practice01 {
 	// 처음 뵙겠습니다
 	public static void ex10() {
 
+		Scanner sc = new Scanner(System.in);
+		String[] friend = {"조우민", "정우성", "유재석"};
+		
+		System.out.println("이름을 입력하세요.");
+		String input = sc.next();
+		
+		for(int i=0; i < friend.length; i++ ) {
+			if(input.equals(friend[i])) {
+				System.out.println("반갑다 친구야.");
+				return;
+			}
+		}
+		
+		System.out.println("저 아세요?");
+		
 	}
 
 	public static void main(String[] args) {
-		ex08();
+		ex10();
 	}
 
 }
