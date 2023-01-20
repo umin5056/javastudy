@@ -47,13 +47,21 @@ public class ParkingLot {
 
 		for(int i=0; i<idx; i++ ) {
 			if(cars[i].getCarNo().equals(target)) {
-				System.out.println("차량번호 "+ cars[i].getCarNo() +" 차량이 삭제되었습니다.");
+			/* 방법 (조우민)
+			 * System.out.println("차량번호 "+ cars[i].getCarNo() +" 차량이 삭제되었습니다.");
 				for(int j=i+1; j<cars.length; j++) {
 					cars[i] = cars[j];
 					i++;
 				}
 				idx--;
 				return;
+			*/
+			// 방법(조우민)을 메소드를 이용한 방법	
+			System.arraycopy(cars, i+1, cars, i, idx-i-1);
+			cars[--idx] = null;
+			System.out.println("차량번호 "+ cars[i].getCarNo() +" 차량이 삭제되었습니다.");
+			return;	
+				
 			}
 		}
 		System.out.println("대상 차량이 존재하지 않습니다.");
