@@ -10,7 +10,6 @@ public class Ex02_java_util_Date {
 		Date now2 = new Date();
 		System.out.println(now);
 		System.out.println(now2);
-		
 		System.out.println(now.equals(now2));
 		
 	}

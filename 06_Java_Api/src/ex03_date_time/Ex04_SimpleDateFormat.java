@@ -39,9 +39,9 @@ public class Ex04_SimpleDateFormat {
 		
 		
 		
-		Date bday = new Date(97, 0, 17, 5, 32,20);
+		Date bday = new Date(100, 01, 01, 5, 32,20);
 		
-		SimpleDateFormat sdf2 = new SimpleDateFormat("yyyy : MM : dd : a : HH : mm : ss");
+		SimpleDateFormat sdf2 = new SimpleDateFormat("yyyy : MM : dd : E : a : HH : mm : ss");
 		
 		String bDay = sdf2.format(bday);
 		

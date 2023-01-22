@@ -1,5 +1,7 @@
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.Date;
 import java.util.List;
 import java.util.Scanner;
 
@@ -175,9 +177,9 @@ public class practice02 {
 		String[] subject = {"국어", "영어"	, "수학"};
 		int[][] studentScore = new int[student.length][subject.length];
 		int[] subjectTotal = new int[subject.length];
-		
+
 		int subjectTotalSum = 0;
-		
+
 
 		for(int i=0; i < student.length; i++) {
 			for(int j=0; j < subject.length; j++) {
@@ -189,11 +191,11 @@ public class practice02 {
 
 		System.out.println("\t국어\t" + "영어\t" + "수학\t" + "총점");
 		for(int i=0; i < studentScore.length; i++) {
-			
+
 			int total =0; // 학생 별 합계
 			int subTotal =0; // 과목별 합계
 			System.out.print(student[i]+ "\t"); // 학생 이름 출력
-			
+
 			for(int j=0; j < studentScore[i].length; j++) {
 				System.out.print(studentScore[i][j] + "\t");
 				total += studentScore[i][j];
@@ -201,17 +203,17 @@ public class practice02 {
 			}
 			subjectTotal[i] = subTotal;
 			System.out.println(total);
-			
+
 		}
-		
+
 		System.out.print("합계\t");
-		
+
 		for(int i=0; i < student.length; i++) {
 			subjectTotalSum += subjectTotal[i];
 			System.out.print(subjectTotal[i] + "\t");
 		}
 		System.out.println(subjectTotalSum);
-		
+
 
 	}
 
@@ -226,30 +228,30 @@ public class practice02 {
 	// 겨울을 영어로 하면? >>> win
 	// 오답
 	public static void ex06() {
-		
+
 		Scanner sc = new Scanner(System.in);
-		
+
 		String[][] season = {
 				{"봄", "spring"},
 				{"여름", "summer"},
 				{"가을", "fall"},
 				{"겨울", "winter"}
 		};
-		
+
 		for(int i=0; i < season.length; i++ ) {
-			
+
 			System.out.print(season[i][0] + "을 영어로 하면? >>> ");
 			String answer = sc.next();
-			
+
 			if(answer.equals(season[i][1])) {
-					System.out.println("정답!!");
+				System.out.println("정답!!");
 			} else {
 				System.out.println("오답!!");
 			}
-			
+
 		}
-		
-		
+
+
 
 	}
 
@@ -273,41 +275,41 @@ public class practice02 {
 	//  16 22 18 24 23
 
 	public static void ex07() {
-		
+
 		int[][] bingo = new int[5][5]; // 빙고판
 		int tmp = 0; // 섞을 때 필요한 빈 변수
 		int n = 1; 
-		
+
 		// 빙고판 생성
 		for(int i = 0; i < bingo.length; i++) {
 			for(int j = 0; j < bingo[i].length; j++) {
 				bingo[i][j] = n++;
 			}
 		}
-		
+
 		// 섞는 메소드
 		for(int i = 0; i < bingo.length; i++) {
-			
+
 			for(int j = 0; j < bingo[i].length; j++) {
 				int r1 = (int)(Math.random()*5);
 				int r2 = (int)(Math.random()*5);
 				tmp = bingo[i][j];
 				bingo[i][j] = bingo[r1][r2];
 				bingo[r1][r2] = tmp;
-				
+
 			}
 		}
 
-		// 빙고판 출력
+		// 빙고판 출력 (섞는 동시에 출력하면 중복 값이 나옴)
 		for(int i = 0; i < bingo.length; i++) {
 			for(int j = 0; j < bingo[i].length; j++) {
 				System.out.print(bingo[i][j] + "\t");
 			}
 			System.out.println();
 		}
-		
-		
-		
+
+
+
 	}
 
 	// 문제8. 대문자와 소문자와 숫자로 구성된 인증번호를 만드시오.
@@ -317,7 +319,36 @@ public class practice02 {
 	// 몇 자리의 인증번호를 생성할까요? >>> 6
 	// 생성된 6자리 인증번호는 Fa013b입니다.
 	public static void ex08() {
+		// 대소문자, 숫자를 넣을 배열
+		char[] arr = new char[62];
+		// 아스키 코드를 이용해 배열에 대소문자, 숫자만 넣기위해
+		char ch = 48;
+		// 배열에 대소문자, 숫자 삽입
+		for(int i = 0; i < arr.length; i++) {
 
+			if(ch == 58) ch = 65;
+			if(ch == 91) ch = 97;
+
+			arr[i] = ch++; 
+		}
+
+		Scanner sc = new Scanner(System.in);
+		System.out.print("몇 자리의 인증번호를 생성할까요? >>> ");
+
+		int len = sc.nextInt();
+		StringBuilder sb = new StringBuilder();
+
+		// 인증코드 생성
+		for(int i = 0; i < len; i++) {
+			int r = (int)(Math.random()*62); // 랜덤한 인증코드를 위한 난수
+			sb.append(arr[r]);
+		}
+
+		System.out.println(sb);
+
+
+
+		//		sc.close();
 	}
 
 	// 문제9. 다음 지시시항에 따라 요일을 계산하는 프로그램을 구현하시오.
@@ -344,6 +375,24 @@ public class practice02 {
 	// 입력된 2023-01-19는 목요일입니다.
 	public static void ex09() {
 
+		Scanner sc = new Scanner(System.in);
+
+		System.out.print("년-월-일 입력(2000-01-01) >>> ");
+		String date = sc.next();
+		
+		int year = Integer.parseInt(date.substring(0, 4)) - 1900;
+		int month = Integer.parseInt(date.substring(5, 7)) - 1;
+		int dayOfMonth = Integer.parseInt(date.substring(8));
+		
+		Date input = new Date(year,month,dayOfMonth);
+		
+		SimpleDateFormat sdf = new SimpleDateFormat("입력된 " + "yyy-MM-dd" + "는 " + "E" + "요일입니다.");
+
+		String result = sdf.format(input);
+
+		System.out.println(result);
+
+		sc.close();
 	}
 
 	// 문제10. 사용자가 입력한 금액만큼 로또를 구매한다고 가정하고, 완성된 로또 용지를 출력하시오.
@@ -373,10 +422,64 @@ public class practice02 {
 	// ------------------------------
 	public static void ex10() {
 
+
+		Scanner sc = new Scanner(System.in);
+
+		int[] lotto = new int[6];
+		int money = sc.nextInt()/1000;
+		int number =1; // 로또 횟수 1 ~ 5
+
+		for(int m = 0; m < money; m++) {
+
+			// 로또 번호 배열에 저장
+			for(int i = 0; i < lotto.length; i++) {
+
+				lotto[i] = (int)(Math.random()*45) + 1;
+
+				// 중복될 경우 다시 저장
+				for(int j = 0; j < i; j++) {
+					if(lotto[i] == lotto[j]) {
+						i--;
+						break;
+					}
+				}
+			}
+
+			// 로또 횟수 번호 출력
+			if(number < 6) {
+				System.out.printf("%02d", number);	
+				System.out.print(" : ");
+			} else if(number%5 == 0) {
+				System.out.printf("%02d", 5);	
+				System.out.print(" : ");
+			} else {
+				System.out.printf("%02d", (number%5));	
+				System.out.print(" : ");
+			}
+
+			// 회차별 로또 번호 출력
+			for(int i = 0; i < lotto.length; i++) {
+				System.out.printf("%2d", lotto[i]);
+				System.out.print(" ");
+			}
+			System.out.println();
+
+			// 5번째마다 선 출력
+			if(number%5 == 0 && number!=1) {
+				System.out.println("------------------------------");
+			}
+			number++;
+			// 마지막에 선 출력
+			if(m == money-1) {
+				System.out.println("------------------------------");
+			}
+		}
+		sc.close();
 	}
 
 	public static void main(String[] args) {
-		ex07();
+		ex09();
 	}
+
 
 }
