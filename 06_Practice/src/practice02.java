@@ -273,7 +273,41 @@ public class practice02 {
 	//  16 22 18 24 23
 
 	public static void ex07() {
+		
+		int[][] bingo = new int[5][5]; // 빙고판
+		int tmp = 0; // 섞을 때 필요한 빈 변수
+		int n = 1; 
+		
+		// 빙고판 생성
+		for(int i = 0; i < bingo.length; i++) {
+			for(int j = 0; j < bingo[i].length; j++) {
+				bingo[i][j] = n++;
+			}
+		}
+		
+		// 섞는 메소드
+		for(int i = 0; i < bingo.length; i++) {
+			
+			for(int j = 0; j < bingo[i].length; j++) {
+				int r1 = (int)(Math.random()*5);
+				int r2 = (int)(Math.random()*5);
+				tmp = bingo[i][j];
+				bingo[i][j] = bingo[r1][r2];
+				bingo[r1][r2] = tmp;
+				
+			}
+		}
 
+		// 빙고판 출력
+		for(int i = 0; i < bingo.length; i++) {
+			for(int j = 0; j < bingo[i].length; j++) {
+				System.out.print(bingo[i][j] + "\t");
+			}
+			System.out.println();
+		}
+		
+		
+		
 	}
 
 	// 문제8. 대문자와 소문자와 숫자로 구성된 인증번호를 만드시오.
@@ -342,7 +376,7 @@ public class practice02 {
 	}
 
 	public static void main(String[] args) {
-		ex06();
+		ex07();
 	}
 
 }
