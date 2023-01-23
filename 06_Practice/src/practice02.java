@@ -1,6 +1,7 @@
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 import java.util.Scanner;
@@ -24,10 +25,10 @@ public class practice02 {
 
 		while(true) {
 			System.out.print("출금 전 " + balance + "원, ");
-			int deposit = (int)(Math.random()*balance) +1;
-			System.out.print(count + "회 출금액 " + deposit + "원, ");
+			int	withdraw = (int)(Math.random()*balance) +1;
+			System.out.print(count++ + "회 출금액 " + withdraw + "원, ");
 			System.out.println("출금 후 " + balance + "원");
-			balance -= deposit;
+			balance -= withdraw;
 			if(balance==0) break;
 		}
 
@@ -171,15 +172,46 @@ public class practice02 {
 	// 합계 180  183  189  552	
 	public static void ex05() {
 
+		// 강사님 방법 (2차원 배열 사용)
 		Scanner sc = new Scanner(System.in);
+		String[] name = {"정숙", "미희", "상철", "합계"};
+		String[] subject = {"국어", "영어", "수학", "총점"};
+		int[][] score = new int[name.length][subject.length];
 
+		// 점수(총점포함) 2차원 배열에 담기
+		for(int i=0; i < name.length-1; i++) {
+			for(int j=0; j < subject.length-1; j++) {
+				System.out.print(name[i] + "의 " + subject[j] + " 점수 >>> ");
+				score[i][j] = sc.nextInt();
+				score[i][subject.length-1] += score[i][j];
+				score[name.length-1][j] += score[i][j];
+				score[name.length-1][subject.length-1] += score[i][j];
+			}
+		}
+
+		System.out.print("\t");
+
+		for(int i=0; i<subject.length; i++) {
+			System.out.print(subject[i] + "\t");
+		}
+		System.out.println();
+		for(int i=0; i<name.length; i++) {
+			System.out.print(name[i]);
+			for(int j=0; j<subject.length; j++) {
+				System.out.print("\t" + score[i][j]);
+			}
+			System.out.println();
+		}
+
+
+		/* 조우민 방법
+		Scanner sc = new Scanner(System.in);
 		String[] student = {"우민", "정숙", "미희"};
 		String[] subject = {"국어", "영어"	, "수학"};
 		int[][] studentScore = new int[student.length][subject.length];
+
 		int[] subjectTotal = new int[subject.length];
-
 		int subjectTotalSum = 0;
-
 
 		for(int i=0; i < student.length; i++) {
 			for(int j=0; j < subject.length; j++) {
@@ -213,6 +245,7 @@ public class practice02 {
 			System.out.print(subjectTotal[i] + "\t");
 		}
 		System.out.println(subjectTotalSum);
+		 */
 
 
 	}
@@ -289,14 +322,12 @@ public class practice02 {
 
 		// 섞는 메소드
 		for(int i = 0; i < bingo.length; i++) {
-
 			for(int j = 0; j < bingo[i].length; j++) {
 				int r1 = (int)(Math.random()*5);
 				int r2 = (int)(Math.random()*5);
 				tmp = bingo[i][j];
 				bingo[i][j] = bingo[r1][r2];
 				bingo[r1][r2] = tmp;
-
 			}
 		}
 
@@ -344,7 +375,7 @@ public class practice02 {
 			sb.append(arr[r]);
 		}
 
-		System.out.println(sb);
+		System.out.println("생성된 " + len + "자리 인증번호는 \"" + sb + "\"입니다.");
 
 
 
@@ -379,13 +410,13 @@ public class practice02 {
 
 		System.out.print("년-월-일 입력(2000-01-01) >>> ");
 		String date = sc.next();
-		
+
 		int year = Integer.parseInt(date.substring(0, 4)) - 1900;
 		int month = Integer.parseInt(date.substring(5, 7)) - 1;
 		int dayOfMonth = Integer.parseInt(date.substring(8));
-		
+
 		Date input = new Date(year,month,dayOfMonth);
-		
+
 		SimpleDateFormat sdf = new SimpleDateFormat("입력된 " + "yyy-MM-dd" + "는 " + "E" + "요일입니다.");
 
 		String result = sdf.format(input);
@@ -475,10 +506,52 @@ public class practice02 {
 			}
 		}
 		sc.close();
+
+		/* 중복을 막아주는 부분은 한번 출력된 인덱스에 마지막 인덱스를 넣고 마지막 인덱스가 나오지 않게 ballCount를 줄여준다.
+		Scanner sc = new Scanner(System.in);
+		System.out.print("얼마나 구입하시겠습니까? >>> ");
+		int money = sc.nextInt();
+		while(money > 0) {
+			int row = (money >= 5000) ? 5 : money / 1000;
+			int[][] lotto = new int[row][6];
+			for (int i = 0; i < lotto.length; i++) {
+				// 45개 숫자에서 랜덤하게 빼서 lotto[i][j]에 저장
+				int ballCount = 45;
+				int[] ball = new int[ballCount];
+				// 1~45 순차적으로 생성
+				for (int j = 0; j < ball.length; j++) {
+					ball[j] = j + 1;
+				}
+				// ball 배열에서 6개를 lotto[i][j] 보내기
+				for (int j = 0; j < lotto[i].length; j++) {
+					int rnd = (int)(Math.random() * ballCount);  // ball 배열의 인덱스(0~ballCount-1) 랜덤 생성
+					lotto[i][j] = ball[rnd];
+					int lastIdx = 44 - j;	
+					if (rnd != lastIdx) {	 // 
+						ball[rnd] = ball[lastIdx];
+					//	
+					}
+					ballCount--;
+				}
+			}
+			// 출력
+			for (int i = 0; i < lotto.length; i++) {
+				System.out.print("0" + (i + 1) + " : ");
+				for (int j = 0; j < lotto[i].length; j++) {
+					System.out.print( String.format("%4d", lotto[i][j]) );
+				}
+				System.out.println();
+			}
+			System.out.println("------------------------------");
+			money -= 5000;
+		}
+		sc.close();
+		 */
+
 	}
 
 	public static void main(String[] args) {
-		ex09();
+		ex05();
 	}
 
 
