@@ -105,7 +105,7 @@ public class MainClass {
 	}
 	
 	public static void main(String[] args) throws IOException {
-		ex02();
+		ex03();
 		
 		
 	}

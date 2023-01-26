@@ -13,6 +13,11 @@ public class Exam {
 		this.examName = examName;
 	}
 	
+	@Override
+	public String toString() {
+		return "Exam [examName=" + examName + ", kor=" + kor + ", eng=" + eng + ", mat=" + mat + "]";
+	}
+
 	// 메소드
 	public void setScore() {
 		// 모든 점수를 0 ~ 100 사이로 랜덤하게 세팅

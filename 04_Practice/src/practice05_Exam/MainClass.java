@@ -8,7 +8,8 @@ public class MainClass {
 		exam.setScore();  // 국, 영, 수학 점수 0 ~ 100 사이 랜덤 생성
 		
 		Student student = new Student("emily");
-		student.setExam(exam);
+//		student.setExam(exam);
+//		System.out.println(student.getExam());
 		student.info();
 		
 	}
