@@ -1,17 +1,17 @@
 package java_remind;
 
+import java.util.Scanner;
+
 public class MainClass {
 
 	public static void main(String[] args) {
+		
+		for(int i=1; i<6; i++) {
+			for(int j=0; j<i; j++) {
+				System.out.print("*");
+			}
+			System.out.println();
+		}
 
-		Exam exam = new Exam("중간고사");
-		exam.setScore();  // 국, 영, 수학 점수 0 ~ 100 사이 랜덤 생성
-		
-		Student student = new Student("emily");
-		student.setExam(exam);
-		student.info();
-		
-		
 	}
-
 }

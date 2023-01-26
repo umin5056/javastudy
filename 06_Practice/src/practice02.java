@@ -452,60 +452,68 @@ public class practice02 {
 	// 01 :   13  10  42  34  32  21
 	// ------------------------------
 	public static void ex10() {
-
-
+		
 		Scanner sc = new Scanner(System.in);
-
-		int[] lotto = new int[6];
 		int money = sc.nextInt()/1000;
-		int number =1; // 로또 횟수 1 ~ 5
-
-		for(int m = 0; m < money; m++) {
-
-			// 로또 번호 배열에 저장
-			for(int i = 0; i < lotto.length; i++) {
-
-				lotto[i] = (int)(Math.random()*45) + 1;
-
-				// 중복될 경우 다시 저장
-				for(int j = 0; j < i; j++) {
-					if(lotto[i] == lotto[j]) {
-						i--;
-						break;
-					}
-				}
-			}
-
-			// 로또 횟수 번호 출력
-			if(number < 6) {
-				System.out.printf("%02d", number);	
-				System.out.print(" : ");
-			} else if(number%5 == 0) {
-				System.out.printf("%02d", 5);	
-				System.out.print(" : ");
-			} else {
-				System.out.printf("%02d", (number%5));	
-				System.out.print(" : ");
-			}
-
-			// 회차별 로또 번호 출력
-			for(int i = 0; i < lotto.length; i++) {
-				System.out.printf("%2d", lotto[i]);
-				System.out.print(" ");
-			}
-			System.out.println();
-
-			// 5번째마다 선 출력
-			if(number%5 == 0 && number!=1) {
-				System.out.println("------------------------------");
-			}
-			number++;
-			// 마지막에 선 출력
-			if(m == money-1) {
-				System.out.println("------------------------------");
-			}
+		
+		for(int i=0; i<6; i++) {
+			int r = (int)(Math.random()*45) +1;
+			System.out.println(r);
 		}
-		sc.close();
+
+
+//		Scanner sc = new Scanner(System.in);
+//
+//		int[] lotto = new int[6];
+//		int money = sc.nextInt()/1000;
+//		int number =1; // 로또 횟수 1 ~ 5
+//
+//		for(int m = 0; m < money; m++) {
+//
+//			// 로또 번호 배열에 저장
+//			for(int i = 0; i < lotto.length; i++) {
+//
+//				lotto[i] = (int)(Math.random()*45) + 1;
+//
+//				// 중복될 경우 다시 저장
+//				for(int j = 0; j < i; j++) {
+//					if(lotto[i] == lotto[j]) {
+//						i--;
+//						break;
+//					}
+//				}
+//			}
+//
+//			// 로또 횟수 번호 출력
+//			if(number < 6) {
+//				System.out.printf("%02d", number);	
+//				System.out.print(" : ");
+//			} else if(number%5 == 0) {
+//				System.out.printf("%02d", 5);	
+//				System.out.print(" : ");
+//			} else {
+//				System.out.printf("%02d", (number%5));	
+//				System.out.print(" : ");
+//			}
+//
+//			// 회차별 로또 번호 출력
+//			for(int i = 0; i < lotto.length; i++) {
+//				System.out.printf("%2d", lotto[i]);
+//				System.out.print(" ");
+//			}
+//			System.out.println();
+//
+//			// 5번째마다 선 출력
+//			if(number%5 == 0 && number!=1) {
+//				System.out.println("------------------------------");
+//			}
+//			number++;
+//			// 마지막에 선 출력
+//			if(m == money-1) {
+//				System.out.println("------------------------------");
+//			}
+//		}
+//		sc.close();
 
 		/* 중복을 막아주는 부분은 한번 출력된 인덱스에 마지막 인덱스를 넣고 마지막 인덱스가 나오지 않게 ballCount를 줄여준다.
 		Scanner sc = new Scanner(System.in);
@@ -551,7 +559,7 @@ public class practice02 {
 	}
 
 	public static void main(String[] args) {
-		ex05();
+		ex10();
 	}
 
 

@@ -42,15 +42,13 @@ public class MainClass {
 	public static void ex02() throws IOException {// ex02 메소드를 호출한 곳으로 예외처리를 넘긴다.
 		String s = File.separator;
 
-		File dir = new File(s + "Users" + s +"woomin" + s + "Documents" + s);
+		File dir = new File(s + "Users" + s +"woomin" + s + "Documents" + s + "storage");
 		if(dir.exists() == false) {
 			dir.mkdirs();
 		}
 
 		File file = new File(dir,"myfile.txt");
-		if(file.exists() == false) {
-			file.createNewFile(); // 반드시 예외처리가 필요한 코드
-		} else {
+		if(file.exists()) {
 			file.delete();
 		}
 
@@ -107,7 +105,7 @@ public class MainClass {
 	}
 	
 	public static void main(String[] args) throws IOException {
-		ex04();
+		ex02();
 		
 		
 	}
