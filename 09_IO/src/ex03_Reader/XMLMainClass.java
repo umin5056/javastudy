@@ -40,7 +40,7 @@ public class XMLMainClass {
 					for(int j=0; j<nodeList2.getLength(); j++) {
 						Node node2 = nodeList2.item(j); // Node2는 #text(줄바꿈을 의미)와 <model> <maker> <price> 태그(Element) 중 하나이다.
 						if(node2.getNodeType() == Node.ELEMENT_NODE) { // Node2가 <model> <maker> <price> 태그(Element) 중 하나인가?
-							String key = node2.getNodeName();	// ket는 model, maker, price를 의미
+							String key = node2.getNodeName();	// key는 model, maker, price를 의미
 							product.put(key, node2.getTextContent());
 						}
 					}
