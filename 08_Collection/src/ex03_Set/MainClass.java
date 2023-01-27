@@ -81,7 +81,7 @@ public class MainClass {
 		Set<Integer> set1 = new HashSet<>(Arrays.asList(1,2,3,4,5));
 		Set<Integer> set2 = new HashSet<>(Arrays.asList(3,4,5,6,7));
 
-		// 교집합5
+		// 차집합
 		set1.removeAll(set2); // set1에 set2에 없는 요소만 남는다.
 
 		System.out.println(set1);
@@ -105,7 +105,7 @@ public class MainClass {
 	
 
 	public static void main(String[] args) {
-		ex06();
+		ex02();
 	}
 
 }

@@ -3,11 +3,11 @@ package ex02_Writer;
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 
 public class CSVMacinClass {
 
@@ -59,6 +59,14 @@ public class CSVMacinClass {
 
 			for(int i=0; i < products.size(); i++) {
 				out.println(products.get(i).get("model") +"," +products.get(i).get("maker")+","+products.get(i).get("price"));
+			}
+			
+			// 향상된 for문으로 작성
+			for(Map<String,Object> product : products) {
+				for(Entry<String, Object> entry : product.entrySet()) {
+					out.println(entry.getValue() + ",");
+				}
+				System.out.println();
 			}
 			
 		}catch (IOException e) {
