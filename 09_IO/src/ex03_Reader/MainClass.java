@@ -113,10 +113,10 @@ public class MainClass {
 			
 			char[] cbuf = new char[5]; // 5글자를 읽어 들이는 배열
 			int readCount; // 실제로 읽은 글자의 개수
+			StringBuilder sb = new StringBuilder();
 			
 			while((readCount = fr.read(cbuf)) != -1) {
 				
-				StringBuilder sb = new StringBuilder();
 				sb.append(cbuf, 0, readCount); // idx0부터 readCount개 글자를 sb 더하는 메소드
 				
 				/*
@@ -130,8 +130,8 @@ public class MainClass {
 //				for(int i=0; i < readCount; i++) {
 //					System.out.println(cbuf[i]);
 //				}
-				System.out.println(sb.toString());
 			} // while
+			System.out.println(sb.toString());
 			
 		}catch(IOException e) {
 			e.printStackTrace();
@@ -140,9 +140,44 @@ public class MainClass {
 		
 	}
 	
+	public static void ex03() {
+		
+		/*
+		   BufferedReader의 장점
+		   1. 속도가 빠르다.
+		   2. readLine 메소드를 사용할 수 있다.
+		 */
+		
+		File dir = new File("/Users/woomin/Documents/storage");
+		if(dir.exists() == false) {
+			dir.mkdirs();
+		}
+		File file = new File(dir, "ex03.txt");
+		
+		try(BufferedReader br = new BufferedReader(new FileReader(file))) {
+			
+			String line = null;
+			StringBuilder sb = new StringBuilder();
+			while((line = br.readLine()) != null) {
+				sb.append(line);
+			}
+			
+			System.out.println(sb.toString());
+			
+			
+		}catch(IOException e) {
+			e.printStackTrace();
+		} 
+	}
+	
+	
+	
+	
+	
+	
 	public static void main(String[] args) {
 		
-		ex02();
+		ex03();
 		
 	}
 
