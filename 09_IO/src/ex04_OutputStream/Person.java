@@ -62,6 +62,12 @@ public class Person implements Serializable{
 	}
 
 
+	@Override
+	public String toString() {
+		return "Person [name=" + name + ", age=" + age + ", height=" + height + ", isAlive=" + isAlive + "]";
+	}
+
+
 	public Person() {
 		super();
 	}
@@ -78,3 +84,4 @@ public class Person implements Serializable{
 	
 
 }
+
