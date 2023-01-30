@@ -37,8 +37,6 @@ public class JSONMainClass {
 			}
 			JSONArray arr = new JSONArray(sb.toString());
 			
-			System.out.println(arr);
-
 			List<Map<String, Object>> products = new ArrayList<>();
 			
 			for(int i=0; i < arr.length(); i++) {
@@ -48,7 +46,7 @@ public class JSONMainClass {
 				
 			}
 			
-//			System.out.println(products);
+			System.out.println(products);
 			
 			
 		} catch (IOException e	) {
