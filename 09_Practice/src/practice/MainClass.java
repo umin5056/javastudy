@@ -4,7 +4,6 @@ import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
-import java.io.DataInputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -406,30 +405,10 @@ public class MainClass {
 	}
 	
 	/*
-	   문제8. "안녕하세요. 반갑습니다."를 출력하시오.
-	         DataInputStream / DateOutputStream을 사용하시오.
-	 */
-	public static void ex08() {
-		
-		DataInputStream dis = null;
-		
-		try {
-			
-			
-			System.out.println("입력하신 문장은 : ");
-			
-		}catch(Exception e) {
-			e.printStackTrace();
-			
-		}
-		
-	}
-	
-	/*
-	   문제9. installer의 CodingFonts.zip 파일을 
+	   문제8. installer의 CodingFonts.zip 파일을 
 	   		 storage폴더로 Fonts.zip으로 복사하시오.
 	 */
-	public static void ex09() {
+	public static void ex08() {
 		
 		File from = new File("/Users/woomin/Documents/GDJ61/installer", "CodingFonts.zip");
 		File to = new File("/Users/woomin/Documents/storage", "Fonts2.zip");
@@ -442,13 +421,13 @@ public class MainClass {
 			bis = new BufferedInputStream(new FileInputStream(from));
 			bos = new BufferedOutputStream(new FileOutputStream(to));
 			byte[] b = new byte[1024]; // 1키로바이트씩 이동
+			
 			int readByte = 0;
 			
 			while((readByte = bis.read(b)) != -1) {
-				bos.write(b);
+				bos.write(b, 0, readByte);
 			}
 			
-
 			System.out.println("복사");
 			
 			
@@ -469,7 +448,23 @@ public class MainClass {
 	
 	
 	public static void main(String[] args){ 
-		ex09();
+		
+		/*
+		   문제7. System.in은 키보드로부터 byte 데이터를 입력받는 InputStream이다.
+		         System.in으로부터 문장 1개를 입력 받아서 출력하시오.
+		         Scanner 대신 BufferedReader를 사용하시오.
+		 */
+		
+		try (BufferedReader br = new BufferedReader(new InputStreamReader(System.in))) {
+			
+			String input = br.readLine();
+			
+			System.out.println(input);
+			
+		}catch (IOException e) {
+			e.printStackTrace();
+		}
+		
 	}
 
 }

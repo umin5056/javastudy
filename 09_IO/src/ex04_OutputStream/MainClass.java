@@ -125,12 +125,14 @@ public class MainClass {
 			
 			// 출력할 변수
 			String name = "조우민";
+			String called = "땅땅땅깡땅땅";
 			int age = 27;
 			double height = 178.9;
 			boolean isAlive = true;
 			
 			// 출력(변수 타입에 따라서 메소드가 다름)	
 			dos.writeUTF(name);
+			dos.writeUTF(called);
 			dos.writeInt(age);
 			dos.writeDouble(height);
 			dos.writeBoolean(isAlive);

@@ -157,7 +157,6 @@ public class MainClass {
 			
 			StringBuilder sb = new StringBuilder();
 			String line = null;
-			int readCount = 0;
 			
 			while((line = br.readLine()) != null) {
 				sb.append(line+"\n");
