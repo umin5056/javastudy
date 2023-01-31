@@ -449,21 +449,6 @@ public class MainClass {
 	
 	public static void main(String[] args){ 
 		
-		/*
-		   문제7. System.in은 키보드로부터 byte 데이터를 입력받는 InputStream이다.
-		         System.in으로부터 문장 1개를 입력 받아서 출력하시오.
-		         Scanner 대신 BufferedReader를 사용하시오.
-		 */
-		
-		try (BufferedReader br = new BufferedReader(new InputStreamReader(System.in))) {
-			
-			String input = br.readLine();
-			
-			System.out.println(input);
-			
-		}catch (IOException e) {
-			e.printStackTrace();
-		}
 		
 	}
 

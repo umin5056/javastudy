@@ -1,4 +1,4 @@
-package ex09_IO_MainClass;
+package ex04_OutputStream;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
@@ -24,7 +24,9 @@ import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-public class MainClass {
+import ex04_OutputStream.Person;
+
+public class MainClass2 {
 
 	public static void write() {
 
