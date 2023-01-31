@@ -2,13 +2,20 @@ package ex01_internet;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileOutputStream;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.UnsupportedEncodingException;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.net.URLDecoder;
+import java.net.URLEncoder;
 
 public class MainClass {
 	
@@ -181,10 +188,125 @@ public class MainClass {
 		
 	}
 	
+	// 텍스트 파일을 복사하는 메소드
+	public static void ex04() {
+		
+		String apiURL = "https://gdlms.cafe24.com/uflist/curri/10004/bbs/68_63d8848f7d506.txt";
+		URL url = null;
+		HttpURLConnection con = null;
+		BufferedReader reader = null;
+		BufferedWriter writer = null;
+		
+		
+		try {
+			
+			url = new URL(apiURL);
+			con = (HttpURLConnection) url.openConnection();
+			writer = new BufferedWriter(new FileWriter("/Users/woomin/Documents/storage/다운로드문서.txt"));
+			
+			int responseCode = con.getResponseCode();
+			if(responseCode == HttpURLConnection.HTTP_OK) {
+				reader = new BufferedReader(new InputStreamReader(con.getInputStream()));
+				
+			}else {
+				reader = new BufferedReader(new InputStreamReader(con.getErrorStream()));
+				
+			}
+			
+			StringBuilder sb = new StringBuilder();
+			char[] ch = new char[2];
+			int readCount = 0;
+			
+			while((readCount = reader.read(ch)) != -1) {
+				sb.append(ch,0,readCount);
+			}
+			
+			writer.write(sb.toString());
+			
+			writer.close();
+			reader.close();
+			con.disconnect();
+			
+		}catch(MalformedURLException e) {
+			System.out.println("접속 오류");
+		}catch(IOException e2) {
+			e2.printStackTrace();
+		}
+	}
+
+	public static void ex004() {
+		
+		String apiURL = "https://gdlms.cafe24.com/uflist/curri/10004/bbs/68_63d8848f7d506.txt";
+		
+		URL url = null;
+		HttpURLConnection con = null;
+		BufferedReader in = null;
+		BufferedWriter out = null;
+		
+		try {
+			
+			url = new URL(apiURL);
+			con = (HttpURLConnection) url.openConnection();
+
+			int responseCode = con.getResponseCode();
+			String message = null;
+			
+			if(responseCode == HttpURLConnection.HTTP_OK) {
+				in = new BufferedReader(new InputStreamReader(con.getInputStream()));
+				out = new BufferedWriter(new FileWriter("/Users/woomin/Documents/storage/다운로드.txt"));
+				message = "다운로드 성공";
+			}else {
+				in = new BufferedReader(new InputStreamReader(con.getErrorStream()));
+				out = new BufferedWriter(new FileWriter("/Users/woomin/Documents/storage/다운로드.txt"));
+				message = "다운로드 실패";
+			}
+			
+			StringBuilder sb = new StringBuilder();
+			char[] ch = new char[3];
+			int readCount = 0;
+			
+			while((readCount = in.read(ch)) != -1) {
+				sb.append(ch, 0, readCount);
+			}
+			sb.append(message);
+			out.write(sb.toString());
+			
+			out.close();	// Writer는 닫지 않으면 문서가 flush가 되지않아 txt가 비어있음.
+			in.close();
+			con.disconnect();
+			
+		}catch(Exception e) {
+			e.getMessage();
+		}
+	}
+	
+	public static void ex05() {
+		
+		/*
+		   인코딩(암호화) : 원본 데이더를 UTF-8 방식으로 암호화
+		   디코딩(복호화) : UTF-8 방식으로 암호화된 데이터를 복원
+		 */
+		
+		String data = "한글 english 12345 !@#$%";
+		
+		try {
+			// 인코딩
+			String encodeData = URLEncoder.encode(data, "UTF-8");
+			System.out.println(encodeData);
+			// 디코딩
+			String decodeData = URLDecoder.decode(encodeData, "UTF-8");
+			System.out.println(decodeData);
+			
+			
+		}catch(UnsupportedEncodingException e) {
+			System.out.println("인코딩 실패");
+		}
+		
+	}
 	
 	public static void main(String[] args) {
 
-		ex01();
+		ex05();
 		
 	}
 
