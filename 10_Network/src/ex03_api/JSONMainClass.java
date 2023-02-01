@@ -2,11 +2,12 @@ package ex03_api;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
-import java.io.FileWriter;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
+
+import org.json.JSONObject;
 
 public class JSONMainClass {
 
@@ -50,15 +51,17 @@ public class JSONMainClass {
 			reader.close();
 			con.disconnect();
 			
-			writer = new BufferedWriter(new FileWriter("/Users/woomin/Documents/storage/지역날씨정보.json"));
+//			System.out.println(sb.toString());
 			
-			writer.write(sb.toString());
+			// body의 값을 가져오는 두가지 방법
+			// 58~60줄보다는 62줄을 권장한다.	
+			JSONObject obj = new JSONObject(sb.toString());
+			JSONObject obj2 = obj.getJSONObject("response");
+			JSONObject obj3 = obj2.getJSONObject("body");
 			
-			writer.close();
+			JSONObject body = obj.getJSONObject("response").getJSONObject("body");
 			
-			System.out.println("지역 날씨 정보 생성");
-			
-			
+			System.out.println(body);
 		}catch(Exception e) {
 			e.printStackTrace();
 		}
