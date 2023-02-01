@@ -7,6 +7,7 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
 
+import org.json.JSONArray;
 import org.json.JSONObject;
 
 public class JSONMainClass {
@@ -51,17 +52,25 @@ public class JSONMainClass {
 			reader.close();
 			con.disconnect();
 			
-//			System.out.println(sb.toString());
+			System.out.println(sb.toString());
 			
 			// body의 값을 가져오는 두가지 방법
-			// 58~60줄보다는 62줄을 권장한다.	
+			// 방법 1	
 			JSONObject obj = new JSONObject(sb.toString());
-			JSONObject obj2 = obj.getJSONObject("response");
-			JSONObject obj3 = obj2.getJSONObject("body");
-			
 			JSONObject body = obj.getJSONObject("response").getJSONObject("body");
+			JSONArray items = body.getJSONArray("items");
 			
-			System.out.println(body);
+			System.out.println(items);
+
+			for(int i = 0; i < items.length(); i++) {
+				JSONObject item = items.getJSONObject(i);
+				String stationName = item.getString("stationName");
+				String pm10Value = item.getString("pm10Value");
+				String o3Value = item.getString("o3Value");
+				System.out.println(stationName + " : 미세먼지 -" + pm10Value + " 오존농도 : " + o3Value);
+			}
+			
+			
 		}catch(Exception e) {
 			e.printStackTrace();
 		}
