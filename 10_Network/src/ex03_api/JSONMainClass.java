@@ -77,8 +77,83 @@ public class JSONMainClass {
 		
 	}
 	
+	public static void ex02() {
+		String serviceKey = "aOJrKq8Gmbtj4fbbnazrR4UFB1CRl4gcsdQLaM+1A/ygF3r7EVOrIGy2LgOclgIMb2XHdGOHa9OcHBQoUx1a/g==";
+		StringBuilder apiURL = new StringBuilder("http://apis.data.go.kr/B552584/ArpltnInforInqireSvc/getMinuDustWeekFrcstDspth");
+		URL url = null;
+		HttpURLConnection con = null;
+		BufferedReader reader = null;
+		BufferedWriter writer = null;
+		
+		try {
+			apiURL.append("?serviceKey=" + URLEncoder.encode(serviceKey, "UTF-8"));
+			apiURL.append("&returnType=json");
+			apiURL.append("&searchDate=2023-01-30");
+			
+			url = new URL(apiURL.toString());
+			con = (HttpURLConnection) url.openConnection();
+			
+			con.setRequestMethod("GET");
+			con.setRequestProperty("Content-Type", "apllication/json; charser=UTF-8");
+			
+			if(con.getResponseCode() == 200) {
+				reader = new BufferedReader(new InputStreamReader(con.getInputStream()));
+			}else {
+				reader = new BufferedReader(new InputStreamReader(con.getInputStream()));
+			}
+			
+			String line = null;
+			StringBuilder sb = new StringBuilder();
+			
+			while((line = reader.readLine()) != null) {
+				sb.append(line);
+			}
+			
+			reader.close();
+			con.disconnect();
+			
+			System.out.println(sb.toString());
+			
+			JSONArray items = new JSONObject(sb.toString())
+								.getJSONObject("response")
+								.getJSONObject("body")
+								.getJSONArray("items");
+				
+			for(int i=0; i < items.length(); i++) {
+				JSONObject item = items.getJSONObject(i);
+				
+				String frcstOneCn = item.getString("frcstOneCn");
+				String frcstOneDt = item.getString("frcstOneDt");
+				String frcstTwoCn = item.getString("frcstTwoCn");
+				String frcstTwoDt = item.getString("frcstTwoDt");
+				String frcstThreeCn = item.getString("frcstThreeCn");
+				String frcstThreeDt = item.getString("frcstThreeDt");
+				String frcstFourCn = item.getString("frcstFourCn");
+				String frcstFourDt = item.getString("frcstFourDt");
+				
+				System.out.println("첫째날 예보 일시 : " + frcstOneDt + "\n" +"첫째날 예보 - " + frcstOneCn);
+				System.out.println();
+				System.out.println("둘째날 예보 일시 : " + frcstTwoDt + "\n" +"둘째날 예보 - " + frcstTwoCn);
+				System.out.println();
+				System.out.println("셋째날 예보 일시 : " + frcstThreeDt + "\n" +"셋째날 예보 - " + frcstThreeCn);
+				System.out.println();
+				System.out.println("넷째날 예보 일시 : " + frcstFourDt + "\n" +"넷째날 예보 - " + frcstFourCn);
+				
+			}
+			
+			
+			
+			
+			
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		
+	}
+	
 	public static void main(String[] args) {
-		ex01();
+		ex02();
 	}
 
 }
