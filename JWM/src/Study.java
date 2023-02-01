@@ -1,50 +1,43 @@
-import java.io.BufferedInputStream;
-import java.io.BufferedOutputStream;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.io.FileWriter;
-import java.io.IOException;
-import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
 import java.net.URL;
 
 public class Study {
 	public static void main(String[] args) {
 		
 		String apiURL = "http://www.kma.go.kr/XML/weather/sfc_web_map.xml";
-
+		
 		URL url = null;
 		HttpURLConnection con = null;
-		BufferedInputStream in = null;
-		BufferedOutputStream out = null;
+		BufferedReader in = null;
+		BufferedWriter out = null;
 		
 		try {
-			url = new URL(apiURL);
-			con = (HttpURLConnection)url.openConnection();
 			
-			int responseCode = con.getResponseCode();
-			if(responseCode == HttpURLConnection.HTTP_OK) {
-				in = new BufferedInputStream((con.getInputStream()));
-			}else {
-				in = new BufferedInputStream((con.getErrorStream()));
+			url = new URL(apiURL);
+			con = (HttpURLConnection) url.openConnection();
+			out = new BufferedWriter(new FileWriter("/Users/woomin/Documents/storage2/날씨.xml"));
+			
+			int code = con.getResponseCode();
+			
+			if(code == HttpURLConnection.HTTP_OK) {
+				in = new BufferedReader(new InputStreamReader(con.getInputStream()));
+			} else {
+				in = new BufferedReader(new InputStreamReader(con.getInputStream()));
 			}
 			
-			out = new BufferedOutputStream(new FileOutputStream("/Users/woomin/Documents/storage/날씨정보.xml"));
-			
-			byte[] ch = new byte[30];
+			char[] ch = new char[5];
 			int readCount = 0;
 			StringBuilder sb = new StringBuilder();
 			
-			while((readCount = in.read(ch)) != -1) {
-				out.write(ch, 0, readCount);
+			while((readCount = in.read(ch)) != -1 ) {
+				sb.append(ch, 0, readCount);
 			}
 			
+			out.write(sb.toString());
 			
 			out.close();
 			in.close();
@@ -53,10 +46,6 @@ public class Study {
 		}catch(Exception e) {
 			
 		}
-	
-	
-	
-	
-	
+		
 	}
 }

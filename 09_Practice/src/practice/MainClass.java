@@ -418,22 +418,27 @@ public class MainClass {
 		
 		
 		try {
+			
 			bis = new BufferedInputStream(new FileInputStream(from));
 			bos = new BufferedOutputStream(new FileOutputStream(to));
+			
 			byte[] b = new byte[1024]; // 1키로바이트씩 이동
 			
 			int readByte = 0;
 			
+		
 			while((readByte = bis.read(b)) != -1) {
 				bos.write(b, 0, readByte);
 			}
 			
 			System.out.println("복사");
 			
-			
 		}catch (IOException e) {
+			
 			e.printStackTrace();
+			
 		}finally {
+			
 			try {
 				if(bos != null && bis != null) {
 					bis.close();
@@ -443,7 +448,6 @@ public class MainClass {
 				e.printStackTrace();
 			}
 		}
-				
 	}
 	
 	

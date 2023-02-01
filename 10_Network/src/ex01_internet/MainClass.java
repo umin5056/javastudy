@@ -32,7 +32,6 @@ public class MainClass {
 	 	  2) 호스트	: 서버의 대표 주소
 	 	  3) 서버경로	: URL Mapping(URL Pattern)
 	 	  4) 파라미터	: 서버로 보내는 데이터 (변수라고 생각하면 됨)
-
 	 */
 
 	public static void ex01() {
@@ -368,7 +367,7 @@ public class MainClass {
 
 	public static void main(String[] args) {
 
-		ex06();
+		ex02();
 
 	}
 
