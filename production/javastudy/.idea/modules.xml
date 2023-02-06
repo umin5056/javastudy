@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/01_Variable/01_Variable.iml" filepath="$PROJECT_DIR$/01_Variable/01_Variable.iml" />
+      <module fileurl="file://$PROJECT_DIR$/02_Control/02_Control.iml" filepath="$PROJECT_DIR$/02_Control/02_Control.iml" />
+      <module fileurl="file://$PROJECT_DIR$/03_Array/03_Array.iml" filepath="$PROJECT_DIR$/03_Array/03_Array.iml" />
+      <module fileurl="file://$PROJECT_DIR$/04_Class/04_Class.iml" filepath="$PROJECT_DIR$/04_Class/04_Class.iml" />
+      <module fileurl="file://$PROJECT_DIR$/04_Practice/04_Practice.iml" filepath="$PROJECT_DIR$/04_Practice/04_Practice.iml" />
+      <module fileurl="file://$PROJECT_DIR$/05_Practice/05_Practice.iml" filepath="$PROJECT_DIR$/05_Practice/05_Practice.iml" />
+      <module fileurl="file://$PROJECT_DIR$/05_inheritance/05_inheritance.iml" filepath="$PROJECT_DIR$/05_inheritance/05_inheritance.iml" />
+      <module fileurl="file://$PROJECT_DIR$/06_Java_Api/06_Java_Api.iml" filepath="$PROJECT_DIR$/06_Java_Api/06_Java_Api.iml" />
+      <module fileurl="file://$PROJECT_DIR$/06_Practice/06_Practice.iml" filepath="$PROJECT_DIR$/06_Practice/06_Practice.iml" />
+      <module fileurl="file://$PROJECT_DIR$/07_Exception/07_Exception.iml" filepath="$PROJECT_DIR$/07_Exception/07_Exception.iml" />
+      <module fileurl="file://$PROJECT_DIR$/08_Collection/08_Collection.iml" filepath="$PROJECT_DIR$/08_Collection/08_Collection.iml" />
+      <module fileurl="file://$PROJECT_DIR$/09_IO/09_IO.iml" filepath="$PROJECT_DIR$/09_IO/09_IO.iml" />
+      <module fileurl="file://$PROJECT_DIR$/09_Practice/09_Practice.iml" filepath="$PROJECT_DIR$/09_Practice/09_Practice.iml" />
+      <module fileurl="file://$PROJECT_DIR$/10_Network/10_Network.iml" filepath="$PROJECT_DIR$/10_Network/10_Network.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Algorithm/Algorithm.iml" filepath="$PROJECT_DIR$/Algorithm/Algorithm.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Appendix/Appendix.iml" filepath="$PROJECT_DIR$/Appendix/Appendix.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Appendix01/Appendix01.iml" filepath="$PROJECT_DIR$/Appendix01/Appendix01.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Bean/Bean.iml" filepath="$PROJECT_DIR$/Bean/Bean.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Exam01/Exam01.iml" filepath="$PROJECT_DIR$/Exam01/Exam01.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Exam02/Exam02.iml" filepath="$PROJECT_DIR$/Exam02/Exam02.iml" />
+      <module fileurl="file://$PROJECT_DIR$/JWM/JWM.iml" filepath="$PROJECT_DIR$/JWM/JWM.iml" />
+      <module fileurl="file://$PROJECT_DIR$/TestProject/TestProject.iml" filepath="$PROJECT_DIR$/TestProject/TestProject.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/javastudy.iml" filepath="$PROJECT_DIR$/.idea/javastudy.iml" />
+      <module fileurl="file://$PROJECT_DIR$/test/test.iml" filepath="$PROJECT_DIR$/test/test.iml" />
+    </modules>
+  </component>
+</project>

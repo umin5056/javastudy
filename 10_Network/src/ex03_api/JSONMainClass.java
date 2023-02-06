@@ -141,15 +141,9 @@ public class JSONMainClass {
 				
 			}
 			
-			
-			
-			
-			
 		}catch (Exception e) {
 			e.printStackTrace();
 		}
-		
-		
 	}
 	
 	public static void main(String[] args) {
