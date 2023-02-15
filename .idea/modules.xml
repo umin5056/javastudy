@@ -17,8 +17,9 @@
       <module fileurl="file://$PROJECT_DIR$/09_Practice/09_Practice.iml" filepath="$PROJECT_DIR$/09_Practice/09_Practice.iml" />
       <module fileurl="file://$PROJECT_DIR$/10_Network/10_Network.iml" filepath="$PROJECT_DIR$/10_Network/10_Network.iml" />
       <module fileurl="file://$PROJECT_DIR$/Algorithm/Algorithm.iml" filepath="$PROJECT_DIR$/Algorithm/Algorithm.iml" />
-      <module fileurl="file://$PROJECT_DIR$/Appendix/Appendix.iml" filepath="$PROJECT_DIR$/Appendix/Appendix.iml" />
       <module fileurl="file://$PROJECT_DIR$/Appendix01/Appendix01.iml" filepath="$PROJECT_DIR$/Appendix01/Appendix01.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Appendix/Appendix02_Bean.iml" filepath="$PROJECT_DIR$/Appendix/Appendix02_Bean.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Appendix03_jdbc/Appendix03_jdbc.iml" filepath="$PROJECT_DIR$/Appendix03_jdbc/Appendix03_jdbc.iml" />
       <module fileurl="file://$PROJECT_DIR$/Bean/Bean.iml" filepath="$PROJECT_DIR$/Bean/Bean.iml" />
       <module fileurl="file://$PROJECT_DIR$/Exam01/Exam01.iml" filepath="$PROJECT_DIR$/Exam01/Exam01.iml" />
       <module fileurl="file://$PROJECT_DIR$/Exam02/Exam02.iml" filepath="$PROJECT_DIR$/Exam02/Exam02.iml" />
