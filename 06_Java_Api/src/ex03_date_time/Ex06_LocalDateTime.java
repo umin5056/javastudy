@@ -83,15 +83,15 @@ public class Ex06_LocalDateTime {
 		int hour = now.getHour();
 		int minute = now.getMinute();
 		int second = now.getSecond();
-		
+
 		System.out.println(year);
 		System.out.println(month);
 		System.out.println(day);
 		System.out.println(hour);
 		System.out.println(minute);
 		System.out.println(second);
-		
-		
+
+
 	}
 
 	public static void main(String[] args) {

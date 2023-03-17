@@ -150,19 +150,32 @@ public class MainClass {
 			}
 
 			/*
-			 * | member_no | id | name | address | join_date | 최초 rs가 가리키는 위치 | 1 | admin |
-			 * 관리자 | 서울 | 23/02/15 | 첫번째 rs.next()를 호출한 경우 | 2 | master | 운영자 | 경기 |
-			 * 23/02/16 | 두번째 rs.next()를 호출한 경우 세번째 rs.next()를 호출한 경우 결과가 없으므로 false가 반환
+			 * | member_no |   id   | name | address | join_date | 최초 rs가 가리키는 위치
+			 * |     1     |  admin | 관리자 |   서울   | 23/02/15  | 첫번째 rs.next()를 호출한 경우
+			 * |     2     | master | 운영자 |   경기   | 23/02/16  | 두번째 rs.next()를 호출한 경우
+			 * 													   세번째 rs.next()를 호출한 경우 결과가 없으므로 false가 반환
 			 * 
-			 * 1. ResultSet rs 객체는 하나의 행을 가리키는 포인터 역할이다. 2. next 메소드를 통해서 각 행을 가리킬 수 있다. 1)
-			 * next 메소드를 한 번 호출하면 select 전체 결과 중 1행을 가리킨다. 2) next 메소드를 두 번 호출하면 select 전체
-			 * 결과 중 2행을 가리킨다. 3. next 메소드의 호출 결과는 boolean이다. 1) 조회된 결과 행이 있으면 true가 반환된다. 2)
-			 * 조회된 결과 행이 없으면 false가 반환된다.
+			 * 1. ResultSet rs 객체는 하나의 행을 가리키는 포인터 역할이다. 
+			 * 2. next 메소드를 통해서 각 행을 가리킬 수 있다. 
+			 *	 	1) next 메소드를 한 번 호출하면 select 전체 결과 중 1행을 가리킨다. 
+			 *		2) next 메소드를 두 번 호출하면 select 전체 결과 중 2행을 가리킨다.
+			 * 3. next 메소드의 호출 결과는 boolean이다. 
+			 * 		1) 조회된 결과 행이 있으면 true가 반환된다. 
+			 * 		2) 조회된 결과 행이 없으면 false가 반환된다.
 			 * 
-			 * 4. 결과 행의 칼럼 정보 가져오는 방법 1) 칼럼명을 그대로 사용 rs.getInt("member_no");
-			 * rs.getString("id"); rs.getString("name"); rs.getString("address");
-			 * rs.getDate("join_date"); 2) 결과 행의 칼럼 순서대로 번호를 붙여서 사용한다. rs.getInt(1);
-			 * rs.getString(2); rs.getString(3); rs.getString(4); rs.getDate(5);
+			 * 4. 결과 행의 칼럼 정보 가져오는 방법 
+			 * 1) 칼럼명을 그대로 사용 
+			 * 		rs.getInt("member_no");
+			 * 		rs.getString("id"); 
+			 * 		rs.getString("name"); 
+			 * 		rs.getString("address");
+			 * 		rs.getDate("join_date");
+			 * 2) 결과 행의 칼럼 순서대로 번호를 붙여서 사용한다. 
+			 * 		rs.getInt(1);
+			 * 		rs.getString(2); 
+			 * 		rs.getString(3); 
+			 * 		rs.getString(4); 
+			 *		rs.getDate(5);
 			 */
 
 		} catch (Exception e) {

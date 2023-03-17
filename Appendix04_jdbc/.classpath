@@ -6,7 +6,6 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="src" path="src"/>
-	<classpathentry kind="lib" path="/Applications/Eclipse.app/Contents/jar/json-20220924.jar"/>
 	<classpathentry kind="lib" path="/Users/woomin/Documents/GDJ61/jar/ojdbc6.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
